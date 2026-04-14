@@ -5,7 +5,7 @@ from app.errors import (
 )
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     unvaccinated_friend = False
     masks_to_buy = 0
     for friend in friends:
@@ -17,6 +17,6 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             masks_to_buy += 1
     if unvaccinated_friend:
         return "All friends should be vaccinated"
-    if masks_to_buy > 0:
+    if masks_to_buy != 0:
         return f"Friends should buy {masks_to_buy} masks"
     return f"Friends can go to {cafe.name}"
